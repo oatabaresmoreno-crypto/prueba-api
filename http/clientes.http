@@ -1,0 +1,46 @@
+### 1. Listar todos
+GET http://localhost:8000/api/clientes
+Accept: application/json
+
+### 2. Crear un cliente nuevo → debe dar 201
+POST http://localhost:8000/api/clientes
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombre": "María López",
+  "email": "maria@test.com",
+  "telefono": "3001234567",
+  "ciudad": "Cali"
+}
+
+### 3. Crear con datos inválidos → debe dar 422
+POST http://localhost:8000/api/clientes
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombre": "",
+  "email": "esto-no-es-un-email"
+}
+
+### 4. Ver cliente creado
+GET http://localhost:8000/api/clientes/3
+Accept: application/json
+
+### 5. Actualizar solo la ciudad (PATCH parcial)
+PATCH http://localhost:8000/api/clientes/3
+Content-Type: application/json
+Accept: application/json
+
+{
+  "ciudad": "Barranquilla"
+}
+
+### 6. Eliminar → debe dar 200 con mensaje
+DELETE http://localhost:8000/api/clientes/3
+Accept: application/json
+
+### 7. Intentar ver el cliente eliminado → debe dar 404
+GET http://localhost:8000/api/clientes/3
+Accept: application/json

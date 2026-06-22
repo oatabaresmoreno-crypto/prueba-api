@@ -1,0 +1,9 @@
+
+
+### Hola mundo de la API
+GET http://localhost:8000/api/hola
+Accept: application/json
+
+### Ruta con parámetro
+GET http://localhost:8000/api/saludo/James
+Accept: application/json
