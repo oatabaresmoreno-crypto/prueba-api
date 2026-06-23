@@ -23,4 +23,4 @@ Route::get('/saludo/{nombre}', function (string $nombre) {
 
 // Una sola línea crea las 5 rutas del CRUD
 Route::apiResource('clientes', ClienteController::class);
-Route::apiResource('productos', ProductoController::class);
+Route::apiResource('productos', ProductosController::class);
