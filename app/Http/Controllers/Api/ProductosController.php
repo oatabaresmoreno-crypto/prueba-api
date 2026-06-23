@@ -20,9 +20,19 @@ class ProductosController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $request->validate([
+        'nombre' => 'required|string|max:255',
+        'descripcion' => 'nullable|string',
+        'precio' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'activo' => 'boolean',
+    ]);
+
+    $productos = Productos::create($request->all());
+
+    return response()->json($productos, 201);
+}
 
     /**
      * Display the specified resource.
